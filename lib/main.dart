@@ -42,6 +42,8 @@ Widget _buildBody() {
                 _weatherDescription(),
                 Divider(),
                 _temperature(),
+                Divider(),
+                _temperatureForcast(),
               ],
             ),
           ),
@@ -95,14 +97,14 @@ Row _temperature() {
           ),
         ],
       ),
-        SizedBox(width: 16.0),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+      SizedBox(width: 16.0),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
           Row(
             children: <Widget>[
               Text(
-                '88 F Clear',
+                '88° F Clear',
                 style: TextStyle(color: Colors.deepPurple),
               ),
             ],
@@ -118,5 +120,27 @@ Row _temperature() {
         ],
       ),
     ],
+  );
+}
+
+Wrap _temperatureForcast() {
+  return Wrap(
+    spacing: 10.0,
+    children: List.generate(7, (int index) {
+      return Chip(
+        label: Text(
+          '${index + 10}° F',
+          style: TextStyle(fontSize: 15.0),
+        ),
+        avatar: Icon(
+          Icons.wb_cloudy_rounded,
+          color: Colors.blueGrey,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4.0),
+          side: BorderSide(color: Colors.blueGrey.shade400)
+          ),
+      );
+    }),
   );
 }
