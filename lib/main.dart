@@ -40,6 +40,7 @@ Widget _buildBody() {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 _weatherDescription(),
+                Divider(),
                 _temperature(),
               ],
             ),
@@ -94,10 +95,10 @@ Row _temperature() {
           ),
         ],
       ),
-      SizedBox(width: 16.0),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        SizedBox(width: 16.0),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
           Row(
             children: <Widget>[
               Text(
@@ -106,12 +107,12 @@ Row _temperature() {
               ),
             ],
           ),
-            Row(
-              children: <Widget>[
-                  Text(
-                    'San Francisco',
-                    style: TextStyle(color: Colors.grey),
-                  ),
+          Row(
+            children: <Widget>[
+              Text(
+                'San Francisco',
+                style: TextStyle(color: Colors.grey),
+              ),
             ],
           ),
         ],
