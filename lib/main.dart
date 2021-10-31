@@ -44,6 +44,8 @@ Widget _buildBody() {
                 _temperature(),
                 Divider(),
                 _temperatureForcast(),
+                Divider(),
+                _footerRatings(),
               ],
             ),
           ),
@@ -134,13 +136,36 @@ Wrap _temperatureForcast() {
         ),
         avatar: Icon(
           Icons.wb_cloudy_rounded,
-          color: Colors.blueGrey,
+          color: Colors.blue[400],
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4.0),
-          side: BorderSide(color: Colors.blueGrey.shade400)
-          ),
+            borderRadius: BorderRadius.circular(4.0),
+            side: BorderSide(color: Colors.blueGrey.shade400)),
+        backgroundColor: Colors.blueGrey[100],
       );
     }),
+  );
+}
+
+Row _footerRatings() {
+  var stars = Row(
+    mainAxisSize: MainAxisSize.min,
+    children: <Widget>[
+      Icon(Icons.star, size: 15.0, color: Colors.yellow[700],),
+      Icon(Icons.star, size: 15.0, color: Colors.yellow[700],),
+      Icon(Icons.star, size: 15.0, color: Colors.yellow[700],),
+      Icon(Icons.star, size: 15.0, color: Colors.black38,),
+      Icon(Icons.star, size: 15.0, color: Colors.black38,),
+    ],
+  );
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+      Text(
+        'Info with openweathermap.org',
+        style: TextStyle(fontSize: 15.0),
+      ),
+      stars,
+    ],
   );
 }
