@@ -33,49 +33,89 @@ Widget _buildBody() {
     child: Column(
       children: <Widget>[
         _headerImage(),
-        SafeArea(child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            _weatherDescription(),
-          ],
+        SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                _weatherDescription(),
+                _temperature(),
+              ],
+            ),
           ),
-        ),
         ),
       ],
     ),
   );
 }
 
-Image _headerImage(){
+Image _headerImage() {
   return Image(
-    
-    image: NetworkImage('https://images.wallpaperscraft.ru/image/single/pejzazh_gory_art_140515_480x800.jpg'),
+    image: NetworkImage(
+        'https://images.wallpaperscraft.ru/image/single/pejzazh_gory_art_140515_480x800.jpg'),
     fit: BoxFit.cover,
     height: 480,
     width: 480,
-  
   );
 }
 
 Column _weatherDescription() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
-    children:<Widget> [
-    Text(
-      'Tuesday - October 24 ',
-      style: TextStyle(
-        //color: Colors.white30,
-        fontSize: 32.0,
-        fontWeight: FontWeight.bold,
+    children: <Widget>[
+      Text(
+        'Tuesday - October 24 ',
+        style: TextStyle(
+          //color: Colors.white30,
+          fontSize: 32.0,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-    ),
-    Divider(),
-    Text(
-      'Lkskskskssmmtmtm psppspspdkldkfmngng pslsjkfhfghfgtbn, ddddddddddddddddd. GGGGGGGGGGGGGGGGGGGGG. Gffffffffffmmmmmmmmm,cmmmmmm.',
-      style: TextStyle(color: Colors.black54),
-    )
-  ],
+      Divider(),
+      Text(
+        'Lkskskskssmmtmtm psppspspdkldkfmngng pslsjkfhfghfgtbn, ddddddddddddddddd. GGGGGGGGGGGGGGGGGGGGG. Gffffffffffmmmmmmmmm,cmmmmmm.',
+        style: TextStyle(color: Colors.black54),
+      )
+    ],
+  );
+}
+
+Row _temperature() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Icon(
+            Icons.wb_sunny,
+            color: Colors.yellow,
+          ),
+        ],
+      ),
+      SizedBox(width: 16.0),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                '88 F Clear',
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+            ],
+          ),
+            Row(
+              children: <Widget>[
+                  Text(
+                    'San Francisco',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+            ],
+          ),
+        ],
+      ),
+    ],
   );
 }
